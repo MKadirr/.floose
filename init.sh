@@ -12,14 +12,15 @@ replace(){
     cp -r $configf/$1 $backup/$1
     echo "Done"
     printf "%s" "   Replacing: "
-    echo -- "cp -r ./$1 $configf/$1"
+    cp -r ./$1/* $configf/$1/
     echo "Done"
+    echo ""
 }
 
 reverse(){
     echo " - Restauring $1"
     printf "%s" "   Restaure: "
-    cp -r $backup/$1 $configf/$1
+    cp -r $backup/$1/* $configf/$1/
     echo "Done"
 }
 
@@ -48,7 +49,9 @@ unfloose(){
         return
     fi
 
-    reverse bashrc
+    for d in $target; do
+        reverse $d
+    done
 
     echo "Remove $lock to restart it"
 }
