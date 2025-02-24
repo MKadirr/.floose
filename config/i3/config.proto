@@ -146,13 +146,11 @@ title_align right
 default_border pixel 3
 #exec_always feh --bg-scale $HOME/afs/.confs/config/eye.png
 
-
 bindsym $mod+r mode "resize"
+bar {
+    i3bar_command i3bar --transparency
+}
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#    i3bar_command i3bar --transparency
-#        #status_command exec sh $HOME/afs/.confs/config/i3/test.sh
-#        status_command i3status
-#}
+exec_always feh --bg-scale $iHOME/afs/.confs/config/eye.png
+
+title_align right
